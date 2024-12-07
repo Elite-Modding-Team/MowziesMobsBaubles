@@ -1,7 +1,7 @@
 [
   {
     "modid": "mmbaubles",
-    "name": "Mowzie's Mobs Baubles",
+    "name": "Mowzie's Mobs' Baubles",
     "description": "A small addon for Mowzie's Mobs that adds Baubles support",
     "version": "${version}",
     "mcversion": "${mcversion}",

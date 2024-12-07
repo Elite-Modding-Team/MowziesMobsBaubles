@@ -12,7 +12,7 @@ import net.minecraftforge.fml.relauncher.Side;
 @Mod(modid = MowziesMobsBaubles.MODID, name = MowziesMobsBaubles.NAME, version = MowziesMobsBaubles.VERSION, dependencies = MowziesMobsBaubles.DEPENDENCIES)
 public class MowziesMobsBaubles {
     public static final String MODID = Tags.MOD_ID;
-    public static final String NAME = "Mowzie's Mobs Baubles";
+    public static final String NAME = "Mowzie's Mobs' Baubles";
     public static final String VERSION = Tags.VERSION;
     public static final String DEPENDENCIES = "required-after:llibrary;required-after:mowziesmobs;required-after:baubles;";
 
