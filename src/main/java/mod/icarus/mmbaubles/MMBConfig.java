@@ -6,6 +6,7 @@ import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+@Config(modid = MowziesMobsBaubles.MODID, name = MowziesMobsBaubles.NAME)
 public class MMBConfig {
     @Config.Comment("General")
     public static GeneralSettings general_settings = new GeneralSettings();
