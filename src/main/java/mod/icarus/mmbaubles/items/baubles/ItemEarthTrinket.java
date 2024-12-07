@@ -47,6 +47,7 @@ public class ItemEarthTrinket extends Item implements IBauble {
         list.add(I18n.format("item.earthTalisman.text.3"));
         list.add(I18n.format("item.earthTalisman.text.4"));
 
+        // Only mention tunneling if it is enabled in the configuration file
         if (ConfigHandler.TOOLS_AND_ABILITIES.enableGeomancyTunneling) {
             list.add(I18n.format("item.earthTalisman.text.5"));
             list.add(I18n.format("item.earthTalisman.text.6"));
