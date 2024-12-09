@@ -18,6 +18,10 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
 public class ItemSunTrinket extends Item implements IBauble {
+    public ItemSunTrinket() {
+        this.setMaxStackSize(1);
+    }
+
     @Override
     public void onWornTick(ItemStack itemstack, EntityLivingBase player) {
         player.addPotionEffect(new PotionEffect(PotionHandler.SUNS_BLESSING, 2, 0, false, false));
@@ -43,6 +47,6 @@ public class ItemSunTrinket extends Item implements IBauble {
         list.add(I18n.format("tooltip.mmbaubles.sun_trinket.equip"));
         list.add(I18n.format(""));
         list.add(I18n.format("item.grantSunsBlessing.text.1"));
-        list.add(I18n.format("item.grantSunsBlessing.text.2.nocooldown"));
+        list.add(I18n.format("item.grantSunsBlessing.text.2.notimer"));
     }
 }

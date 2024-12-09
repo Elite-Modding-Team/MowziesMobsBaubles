@@ -5,4 +5,4 @@ item.mmbaubles.sun_trinket.name=Trinket of the Sun
 # Tooltips
 tooltip.mmbaubles.earth_trinket.equip=Grants the Geomancy effect while equipped
 tooltip.mmbaubles.sun_trinket.equip=Grants the Sun's Blessing effect while equipped
-item.grantSunsBlessing.text.2.nocooldown=With empty hand, sneak-right-click to fire a solar beam
+item.grantSunsBlessing.text.2.notimer=With empty hand, sneak-right-click to fire a solar beam

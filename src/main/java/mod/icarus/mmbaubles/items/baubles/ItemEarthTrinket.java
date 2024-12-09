@@ -19,6 +19,10 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
 public class ItemEarthTrinket extends Item implements IBauble {
+    public ItemEarthTrinket() {
+        this.setMaxStackSize(1);
+    }
+
     @Override
     public void onWornTick(ItemStack itemstack, EntityLivingBase player) {
         player.addPotionEffect(new PotionEffect(PotionHandler.GEOMANCY, 2, 0, false, false));
