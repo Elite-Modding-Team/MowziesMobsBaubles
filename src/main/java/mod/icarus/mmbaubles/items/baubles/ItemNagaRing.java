@@ -29,12 +29,12 @@ public class ItemNagaRing extends Item implements IBauble {
 
     @Override
     public void onEquipped(ItemStack stack, EntityLivingBase player) {
-        player.playSound(MMSounds.ENTITY_NAGA_ACID_HIT, 0.5F, 1.5F);
+        player.playSound(MMSounds.ENTITY_NAGA_ACID_HIT, 0.45F, 1.5F);
     }
 
     @Override
     public void onUnequipped(ItemStack stack, EntityLivingBase player) {
-        player.playSound(MMSounds.ENTITY_NAGA_ACID_SPIT_HISS, 0.5F, 1.5F);
+        player.playSound(MMSounds.ENTITY_NAGA_ACID_SPIT_HISS, 0.45F, 1.5F);
     }
 
     @Override

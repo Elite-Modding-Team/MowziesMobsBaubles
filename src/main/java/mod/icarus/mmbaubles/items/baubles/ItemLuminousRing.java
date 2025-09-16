@@ -30,7 +30,7 @@ public class ItemLuminousRing extends Item implements IBauble {
 
     @Override
     public void onEquipped(ItemStack stack, EntityLivingBase player) {
-        player.playSound(MMSounds.ENTITY_LANTERN_PUFF, 2.0F, 0.8F);
+        player.playSound(MMSounds.ENTITY_LANTERN_PUFF, 3.0F, 0.8F);
     }
 
     @Override
