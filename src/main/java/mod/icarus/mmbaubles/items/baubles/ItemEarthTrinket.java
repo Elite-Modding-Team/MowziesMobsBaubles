@@ -35,7 +35,7 @@ public class ItemEarthTrinket extends Item implements IBauble {
 
     @Override
     public void onUnequipped(ItemStack stack, EntityLivingBase player) {
-        player.playSound(MMSounds.EFFECT_GEOMANCY_SMALL_CRASH, 3.0F, 1.0F);
+        player.playSound(MMSounds.EFFECT_GEOMANCY_SMALL_CRASH, 2.0F, 1.0F);
     }
 
     @Override

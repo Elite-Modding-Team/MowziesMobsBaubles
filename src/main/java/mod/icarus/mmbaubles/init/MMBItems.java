@@ -2,9 +2,9 @@ package mod.icarus.mmbaubles.init;
 
 import mod.icarus.mmbaubles.MMBConfig;
 import mod.icarus.mmbaubles.MowziesMobsBaubles;
-import mod.icarus.mmbaubles.items.baubles.ItemEarthTrinket;
-import mod.icarus.mmbaubles.items.baubles.ItemSunTrinket;
+import mod.icarus.mmbaubles.items.baubles.*;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
@@ -30,9 +30,13 @@ import com.bobmowzie.mowziesmobs.server.item.ItemHandler;
 @GameRegistry.ObjectHolder(MowziesMobsBaubles.MODID)
 public class MMBItems {
     @GameRegistry.ObjectHolder("earth_trinket")
-    public static Item earthTrinket;
+    public static ItemEarthTrinket earthTrinket;
+    @GameRegistry.ObjectHolder("luminous_ring")
+    public static ItemLuminousRing luminousRing;
+    @GameRegistry.ObjectHolder("naga_ring")
+    public static ItemNagaRing nagaRing;
     @GameRegistry.ObjectHolder("sun_trinket")
-    public static Item sunTrinket;
+    public static ItemSunTrinket sunTrinket;
 
     @SubscribeEvent
     public static void registerItems(@Nonnull final RegistryEvent.Register<Item> event) {
@@ -40,6 +44,10 @@ public class MMBItems {
 
         if (MMBConfig.general_settings.EARTH_TRINKET)
             registry.register(MMBRegistry.setup(new ItemEarthTrinket(), "earth_trinket"));
+        if (MMBConfig.general_settings.LUMINOUS_RING)
+            registry.register(MMBRegistry.setup(new ItemLuminousRing(), "luminous_ring"));
+        if (MMBConfig.general_settings.NAGA_RING)
+            registry.register(MMBRegistry.setup(new ItemNagaRing(), "naga_ring"));
         if (MMBConfig.general_settings.SUN_TRINKET)
             registry.register(MMBRegistry.setup(new ItemSunTrinket(), "sun_trinket"));
     }
@@ -52,6 +60,16 @@ public class MMBItems {
         if (MMBConfig.general_settings.EARTH_TRINKET && MMBConfig.general_settings.EARTH_TRINKET_RECIPE) {
             registry.register(new ShapedOreRecipe(null, earthTrinket, "#X#", "X*X", "#X#", '#', "dirt", 'X', "cobblestone", '*', "netherStar")
                     .setRegistryName(MowziesMobsBaubles.MODID, "earth_trinket"));
+        }
+
+        if (MMBConfig.general_settings.LUMINOUS_RING && MMBConfig.general_settings.LUMINOUS_RING_RECIPE) {
+            registry.register(new ShapedOreRecipe(null, luminousRing, "#X#", "X*X", "#X#", '#', ItemHandler.GLOWING_JELLY, 'X', "ingotGold", '*', "dustGlowstone")
+                    .setRegistryName(MowziesMobsBaubles.MODID, "luminous_ring"));
+        }
+
+        if (MMBConfig.general_settings.NAGA_RING && MMBConfig.general_settings.NAGA_RING_RECIPE) {
+            registry.register(new ShapedOreRecipe(null, nagaRing, "#X#", "X*X", "#X#", '#', ItemHandler.NAGA_FANG, 'X', "ingotGold", '*', Items.FERMENTED_SPIDER_EYE)
+                    .setRegistryName(MowziesMobsBaubles.MODID, "naga_ring"));
         }
 
         if (MMBConfig.general_settings.SUN_TRINKET && MMBConfig.general_settings.SUN_TRINKET_RECIPE) {
