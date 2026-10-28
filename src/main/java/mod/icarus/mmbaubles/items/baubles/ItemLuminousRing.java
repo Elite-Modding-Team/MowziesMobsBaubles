@@ -36,6 +36,10 @@ public class ItemLuminousRing extends Item implements IBauble {
     @Override
     public void onUnequipped(ItemStack stack, EntityLivingBase player) {
         player.playSound(MMSounds.ENTITY_LANTERN_POP, 2.0F, 0.8F);
+        PotionEffect nightVision = player.getActivePotionEffect(MobEffects.NIGHT_VISION);
+        if (nightVision != null && nightVision.getDuration() <= 12 * 20) {
+            player.removePotionEffect(MobEffects.NIGHT_VISION);
+        }
     }
 
     @Override
