@@ -24,8 +24,14 @@ public class ItemLuminousRing extends Item implements IBauble {
 
     @Override
     public void onWornTick(ItemStack itemstack, EntityLivingBase player) {
+        // keeping glowing as duration 2 here since it inherently is not
+        // affected by the bad flicker (no need to change, so don't change)
         player.addPotionEffect(new PotionEffect(MobEffects.GLOWING, 2, 0, false, false));
-        player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 2, 0, false, false));
+        // in vanilla, 10 seconds left is at the point where night vision effect
+        // pulses as a sine wave. flickering occurs if a small duration is
+        // constantly set. must be greater than 200, exclusive. 201 is fine.
+        // existing value had a small buffer, so 205 is safer.
+        player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 205, 0, false, false));
     }
 
     @Override
@@ -36,6 +42,11 @@ public class ItemLuminousRing extends Item implements IBauble {
     @Override
     public void onUnequipped(ItemStack stack, EntityLivingBase player) {
         player.playSound(MMSounds.ENTITY_LANTERN_POP, 2.0F, 0.8F);
+        // simplest handling here which conforms best with existing flow (night
+        // vision is always a beneficial effect, no room for abuse in removing
+        // this). remove potion effect so that the effect instantly drops,
+        // preserving original behaviour of this item
+        player.removePotionEffect(MobEffects.NIGHT_VISION);
     }
 
     @Override
