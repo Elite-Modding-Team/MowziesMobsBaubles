@@ -1,5 +1,6 @@
 package mod.icarus.mmbaubles.items.baubles;
 
+import java.lang.reflect.Field;
 import java.util.List;
 
 import javax.annotation.Nullable;
@@ -21,6 +22,16 @@ import net.minecraft.world.World;
 public class ItemEarthTrinket extends Item implements IBauble {
     public ItemEarthTrinket() {
         this.setMaxStackSize(1);
+    }
+
+    // Prevents crashes if the "wrong" Mowzie's Mobs version is used
+    private boolean shouldShowTunnelingTooltip() {
+        try {
+            Field field = ConfigHandler.ToolsAndAbilities.class.getField("enableGeomancyTunneling");
+            return field.getBoolean(ConfigHandler.TOOLS_AND_ABILITIES);
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            return true;
+        }
     }
 
     @Override
@@ -52,7 +63,7 @@ public class ItemEarthTrinket extends Item implements IBauble {
         list.add(I18n.format("item.earthTalisman.text.4"));
 
         // Only mention tunneling if it is enabled in the configuration file
-        if (ConfigHandler.TOOLS_AND_ABILITIES.enableGeomancyTunneling) {
+        if (shouldShowTunnelingTooltip()) {
             list.add(I18n.format("item.earthTalisman.text.5"));
             list.add(I18n.format("item.earthTalisman.text.6"));
             list.add(I18n.format("item.earthTalisman.text.7"));
