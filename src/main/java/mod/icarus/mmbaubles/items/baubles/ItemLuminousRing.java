@@ -25,7 +25,7 @@ public class ItemLuminousRing extends Item implements IBauble {
     @Override
     public void onWornTick(ItemStack itemstack, EntityLivingBase player) {
         player.addPotionEffect(new PotionEffect(MobEffects.GLOWING, 2, 0, false, false));
-        player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 2, 0, false, false));
+        player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 12 * 20, 0, false, false));
     }
 
     @Override
